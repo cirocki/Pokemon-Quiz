@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css?family=Play:400,700&display=swap&subset=latin-ext');
+
+:root {
+    --primary-color: #141414;
+    --secondary-color: #3466af;
+    --borderWidth: 8px;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: #fff;
+    overflow-x: hidden;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+header {
+    background: #d02727;
+    z-index: 3;
+    position: sticky;
+}
+
+header .container {
+    position: relative;
+}
+
+.pokemon-logo {
+    padding: 1rem;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+}
+
+.quiz-title {
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: right;
+}
+
+/* MAIN */
+.main .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.question__text {
+    padding: 20vh 1rem;
+    font-size: 2rem;
+    line-height: 1.7;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.score__text {
+    font-size: 6rem;
+    position: relative;
+}
+
+.score__text::before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(20deg);
+    content: '?';
+    color: #222;
+    font-size: 32rem;
+    z-index: -2;
+}
+
+/* ANSWERS */
+.answers {
+    padding: 1rem;
+    background-color: var(--secondary-color);
+}
+
+.answers-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.btn {
+    color: #fff;
+    font-family: 'Play', sans-serif;
+    font-weight: 600;
+    padding: 1rem 3rem;
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.25rem;
+    margin: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.btn--answer {
+    padding: 2rem 3rem;
+    width: 100%;
+    background-color: var(--secondary-color);
+    border: 2px solid #fff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn--answer:hover {
+    letter-spacing: 8px;
+}
+
+.correct {
+    background: #0dbd3d;
+}
+
+.wrong {
+    background: #d02727;
+}
+
+/* FOOTER */
+footer {
+    padding: 2rem;
+    background: var(--primary-color);
+}
+
+footer h3,
+footer a {
+    padding: 0.5rem;
+    color: #868686;
+    line-height: 1.7;
+    text-decoration: none;
+}
+
+/* modal */
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    background: url('./pikachu.jpg') no-repeat center;
+    background-size: cover;
+    z-index: 2;
+}
+
+.oak {
+    margin-bottom: 1rem;
+}
+
+.summary,
+.rating {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    line-height: 1.7;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn--start {
+    padding: 2rem 3rem;
+    margin-top: 2rem;
+    background-color: var(--primary-color);
+    font-size: 2rem;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.btn--start:hover {
+    transform: scale(1.1);
+}
+
+/*################## MEDIA QUERIES ###########################*/
+
+@media(max-width: 919px) {
+    .main .container {
+        grid-template-columns: 1fr;
+    }
+
+    .question__text {
+        padding: 10vh 1rem;
+        font-size: 1.5rem;
+    }
+
+    .score__text {
+        font-size: 3rem;
+        padding-bottom: 2rem;
+    }
+
+    .score__text::before {
+        font-size: 12rem;
+        z-index: -2;
+    }
+
+    .btn--answer {
+        padding: 1rem;
+    }
+
+}
+
+@media(max-width: 919px) {
+    .pokemon-logo {
+        padding: 1rem;
+        position: absolute;
+        top: 3rem;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        max-width: 160px;
+    }
+
+    .quiz-title {
+        padding-bottom: 2rem;
+        font-size: 1.25rem;
+        text-align: center;
+    }
+}
+
+@media(max-width: 519px) {
+    .question__text {
+        padding: 5vh 1rem;
+        font-size: 1rem;
+    }
+
+    .answers {
+        padding: 0;
+    }
+
+    .answers-list {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+        margin-top: -3rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+    }
+
+    .summary,
+    .rating {
+        font-size: 1rem;
+    }
+}
+
+@media(max-height: 720px) {
+
+    footer,
+    .oak {
+        display: none;
+    }
+}
+
+
+/* Animated CSS Gradient Border by Mike Schultz */
+.gradient-border {
+    background: #1D1F20;
+    position: relative;
+    border-radius: var(--borderWidth);
+}
+
+.gradient-border:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
