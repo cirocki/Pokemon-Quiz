@@ -181,6 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const startGame = function () {
 
         // hide starting modal
+        answersBox.classList.remove('hidden');
         modal.classList.add('hidden');
 
         // set initial score and question number 
