@@ -29,6 +29,7 @@ header {
     background: #d02727;
     z-index: 3;
     position: sticky;
+    position: -webkit-sticky;
 }
 
 header .container {
