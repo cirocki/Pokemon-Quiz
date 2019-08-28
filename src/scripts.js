@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const scoreBox = document.querySelector('.score__text');
     const summary = document.querySelector('.summary');
     const rating = document.querySelector('.rating');
+    const answersBox = document.querySelector('.answers');
     const answerButton = document.querySelectorAll('.answers-list li button');
 
     // pokeAPI URL with no query 
@@ -165,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const endGame = function () {
         if (questionNumber == questionsLimit) {
             modal.classList.remove('hidden');
+            answersBox.classList.add('hidden');
             summary.textContent = `Your score: ${score}/${questionNumber}. `;
             if (score > questionNumber / 2) {
                 rating.textContent = 'Good Job. You are a real Pokémon Master!'
